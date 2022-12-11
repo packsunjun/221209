@@ -7,6 +7,41 @@ beginPath() - 새로운 빈 경로 만들기(경로(path) 만들기)
 
 moveTo(), lineTo(), rect(), arc() - 경로에 도형 담기
 stroke() – 경로 속의 도형을 캔버스에 그리기
+<script>
+        var canvas, context;
+        function init() {
+            canvas = document.getElementById("myCanvas");
+            context = canvas.getContext("2d");
+
+            context.lineWidth = 2; // 선 굵기 2
+            context.strokeStyle = "blue";
+
+            canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+            canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+            canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+            canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+        }
+
+        var startX = 0, startY = 0; // 드래깅동안, 처음 마우스가 눌러진 좌표
+        var dragging = false;
+        function draw(curX, curY) {
+            context.beginPath();
+            context.moveTo(startX, startY);
+            context.lineTo(curX, curY);
+            context.stroke();
+        }
+        function down(e) {
+            startX = e.offsetX; startY = e.offsetY; dragging = true;
+        }
+        function up(e) { dragging = false; }
+        function move(e) {
+            if (!dragging) return; // 마우스가 눌러지지 않았으면 리턴
+            var curX = e.offsetX, curY = e.offsetY;
+            draw(curX, curY);
+            startX = curX; startY = curY;
+        }
+        function out(e) { dragging = false; }
+    </script>
 ![2](https://user-images.githubusercontent.com/112832753/206888985-d5a16c7d-d5ed-4956-8114-9fe4942dd357.PNG)
 get - 주소를 통해서 이동
 post - headers를 통해서 이동
