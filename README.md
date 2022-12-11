@@ -1,16 +1,13 @@
 # 221209
 캔버스(canvas) 객체 다루기
 
-2학년때 환경변수 많이다룸
-
 ※ 도형 그리기
 캔버스에 도형 그리는 순서
 beginPath() - 새로운 빈 경로 만들기(경로(path) 만들기)
+
 moveTo(), lineTo(), rect(), arc() - 경로에 도형 담기
 stroke() – 경로 속의 도형을 캔버스에 그리기
-
-포트폴리오는 남의것 가져와서 추가하고 업그레이드해도 인정
-
+![2](https://user-images.githubusercontent.com/112832753/206888985-d5a16c7d-d5ed-4956-8114-9fe4942dd357.PNG)
 get - 주소를 통해서 이동
 post - headers를 통해서 이동
 
